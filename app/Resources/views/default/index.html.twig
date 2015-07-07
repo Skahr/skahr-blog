@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {% if app.user and is_granted('ROLE_USER') %}
+            <p>User!</p>
+        {% endif %}
+        {% if app.user and is_granted('ROLE_ADMIN') %}
+            <p>ADMIN</p>
+        {% endif %}
+        Homepage.
+    </div>
+{% endblock %}

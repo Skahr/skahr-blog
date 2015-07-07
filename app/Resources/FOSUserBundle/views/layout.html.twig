@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Danger zone{% endblock %}
+{% block body %}
+<section id="fos_section">
+    <div class="container">
+        <div class="col-xs-4 col-xs-offset-4 text-center">
+            {% block fos_user_content %}{% endblock %}
+        </div>
+    </div>
+    <div class="container text-center">
+        {% if app.request.headers.get('referer') %}
+            <p>
+                <a href="{{ app.request.headers.get('referer') }}">назад</a>
+            </p>
+        {% endif %}
+    </div>
+    <script>
+        $( "input[type~='text'],input[type~='password'],input[type~='email']" ).addClass( "form-control" );
+        //$( "input[type~='checkbox']" ).next().andSelf().wrapAll( "<div class='checkbox'></div>" );
+        $( "input[type~='submit']" ).addClass( "btn btn-default" );
+    </script>
+</section>
+{% endblock %}
